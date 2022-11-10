@@ -42,11 +42,11 @@ namespace _6_Collections4
         {
             Console.Write("Добавьте досье: ");
             fio.Add(Console.ReadLine());
-            Console.WriteLine("Доссье добавлено!");
+            Console.WriteLine("Досье добавлено!");
 
             Console.Write("Добавьте должность: ");
             position.Add(Console.ReadLine());
-            Console.WriteLine("Доссье добавлено!");
+            Console.WriteLine("Досье добавлено!");
         }
 
         static void ShowDossier(List<string> fio, List<string> position)
@@ -66,9 +66,9 @@ namespace _6_Collections4
 
         static void DeleteDossier(List<string> fio)
         {
-            Console.Write("Для удаление доссье введите номер: ");
+            Console.Write("Для удаление досье введите номер: ");
             fio.RemoveAt(Convert.ToInt32(Console.ReadLine()));
-            Console.WriteLine("Доссье удалено!");
+            Console.WriteLine("Досье удалено!");
         }
 
         static void ShowMenu()
