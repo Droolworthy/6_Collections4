@@ -8,8 +8,8 @@ namespace _6_Collections4
         static void Main(string[] args)
         {
             string userInput;
-            List<string> fio = new() { "Фамилия Имя Отчество", "Смирнов Николай Николаевич", "Петров Пётр Иванович", "Целиков Павел Сергеевич" };
-            List<string> position = new() { "Должность", "Программист", "Грузчик", "Водитель" };
+            List<string> fullName = new() { "", "Петров Пётр Иванович", "Целиков Павел Сергеевич", "Смирнов Николай Николаевич" };
+            List<string> position = new() { "", "Грузчик", "Водитель", "Программист" };
             const string CommandAddDossier = "add";
             const string CommandOutputAllDossiers = "output";
             const string CommandDeleteDossier = "delete";
@@ -27,28 +27,28 @@ namespace _6_Collections4
                 switch (userInput)
                 {
                     case CommandAddDossier:
-                        AddDossier(fio, position);
+                        AddDossier(fullName, position);
                         break;
                     case CommandOutputAllDossiers:
-                        OutputAllDossiers(fio, position);
+                        OutputAllDossiers(fullName, position);
                         break;
                     case CommandDeleteDossier:
-                        DeleteDossier(fio, position);
+                        DeleteDossier(fullName, position);
                         break;
                     case CommandExit:
                         isWorking = false;
                         break;
                     default:
-                        Console.WriteLine($"Введите {CommandAddDossier}, {CommandOutputAllDossiers}, {CommandDeleteDossier} или {CommandExit}"); 
+                        Console.WriteLine($"Введите {CommandAddDossier}, {CommandOutputAllDossiers}, {CommandDeleteDossier} или {CommandExit}");
                         break;
                 }
             }
         }
 
-        static void AddDossier(List<string> fio, List<string> position)
+        static void AddDossier(List<string> fullName, List<string> position)
         {
             Console.Write("Введите ФИО: ");
-            fio.Add(Console.ReadLine());
+            fullName.Add(Console.ReadLine());
             Console.WriteLine("ФИО добавлено!");
 
             Console.Write("Введите должность: ");
@@ -56,34 +56,35 @@ namespace _6_Collections4
             Console.WriteLine("Досье добавлено!");
         }
 
-        static void ShowDossier(List<string> fio, List<string> position)
+        static void ShowDossier(List<string> fullName, List<string> position)
         {
-            for (int i = 0; i < fio.Count; i++)
+            for (int i = 1; i < fullName.Count; i++)
             {
                 if (i != 0)
                 {
-                    Console.WriteLine(i + " " + fio[i] + " " + position[i]);
+                    Console.WriteLine(i + " " + fullName[i] + " " + position[i]);
                 }
                 else
                 {
-                    Console.WriteLine("  " + fio[i] + " " + position[i]);
+                    Console.WriteLine(i + " " + fullName[i] + " " + position[i]);
                 }
             }
         }
 
-        static void DeleteDossier(List<string> fio, List<string> position)
+        static void DeleteDossier(List<string> fullName, List<string> position)
         {
             Console.Write("Введите номер досье для удаления: ");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 1; i < fio.Count; i++)
+            if (fullName.Count > userInput)
             {
-                if (i == userInput)
-                {
-                    fio.RemoveAt(userInput);
-                    position.RemoveAt(userInput);
-                    Console.WriteLine("Досье удалено!");      
-                }
+                fullName.RemoveAt(userInput);
+                position.RemoveAt(userInput);
+                Console.WriteLine("Досье удалено!");
+            }
+            else
+            {
+                Console.WriteLine("Такого номера нет в списке.");
             }
         }
 
@@ -96,11 +97,11 @@ namespace _6_Collections4
             Console.WriteLine("|||||||||||________exit - ВЫХОД________||||||||||||");
         }
 
-        static void OutputAllDossiers(List<string> fio, List<string> position)
+        static void OutputAllDossiers(List<string> fullName, List<string> position)
         {
             Console.Clear();
             ShowMenu();
-            ShowDossier(fio, position);
+            ShowDossier(fullName, position);
         }
     }
 }
