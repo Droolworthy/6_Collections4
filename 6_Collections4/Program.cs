@@ -76,7 +76,7 @@ namespace _6_Collections4
             Console.Write("Введите номер досье для удаления: ");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
-            if (fullName.Count >= userInput)
+            if (fullName.Count > userInput)
             {
                 fullName.RemoveAt(userInput);
                 position.RemoveAt(userInput);
