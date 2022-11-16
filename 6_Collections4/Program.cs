@@ -58,8 +58,6 @@ namespace _6_Collections4
 
         static void ShowDossier(List<string> fullName, List<string> position)
         {
-            
-
             for (int i = 0; i < fullName.Count; i++)
             {
                 if (i != 0)
@@ -77,10 +75,11 @@ namespace _6_Collections4
         {
             Console.Write("Введите номер досье для удаления: ");
             string userInput = Console.ReadLine();
+            bool isSuccess = int.TryParse(userInput, out int dossierNumber);
 
-            if (fullName.Count > 0)
+            if (isSuccess)
             {
-                if (int.TryParse(userInput, out int dossierNumber) && dossierNumber < fullName.Count && dossierNumber >= 0)
+                if (dossierNumber < fullName.Count && dossierNumber >= 0)
                 {
                     fullName.RemoveAt(dossierNumber);
                     position.RemoveAt(dossierNumber);
@@ -88,7 +87,7 @@ namespace _6_Collections4
                 }
                 else
                 {
-                    Console.WriteLine("Такого номера нет в списке.");
+                    Console.WriteLine("Ошибка. Попробуйте ещё раз");
                 }
             }
         }
