@@ -8,8 +8,8 @@ namespace _6_Collections4
         static void Main(string[] args)
         {
             string userInput;
-            List<string> fullName = new() { "", "Петров Пётр Иванович", "Целиков Павел Сергеевич", "Смирнов Николай Николаевич" };
-            List<string> position = new() { "", "Грузчик", "Водитель", "Программист" };
+            List<string> fullName = new() { "Петров Пётр Иванович", "Целиков Павел Сергеевич", "Смирнов Николай Николаевич" };
+            List<string> position = new() { "Грузчик", "Водитель", "Программист" };
             const string CommandAddDossier = "add";
             const string CommandOutputAllDossiers = "output";
             const string CommandDeleteDossier = "delete";
@@ -58,7 +58,9 @@ namespace _6_Collections4
 
         static void ShowDossier(List<string> fullName, List<string> position)
         {
-            for (int i = 1; i < fullName.Count; i++)
+            
+
+            for (int i = 0; i < fullName.Count; i++)
             {
                 if (i != 0)
                 {
@@ -66,7 +68,7 @@ namespace _6_Collections4
                 }
                 else
                 {
-                    Console.WriteLine(i + " " + fullName[i] + " " + position[i]);
+                    Console.WriteLine("  " + fullName[i] + " " + position[i]);
                 }
             }
         }
@@ -74,17 +76,20 @@ namespace _6_Collections4
         static void DeleteDossier(List<string> fullName, List<string> position)
         {
             Console.Write("Введите номер досье для удаления: ");
-            int userInput = Convert.ToInt32(Console.ReadLine());
+            string userInput = Console.ReadLine();
 
-            if (fullName.Count > userInput)
+            if (fullName.Count > 0)
             {
-                fullName.RemoveAt(userInput);
-                position.RemoveAt(userInput);
-                Console.WriteLine("Досье удалено!");
-            }
-            else
-            {
-                Console.WriteLine("Такого номера нет в списке.");
+                if (int.TryParse(userInput, out int dossierNumber) && dossierNumber < fullName.Count && dossierNumber >= 0)
+                {
+                    fullName.RemoveAt(dossierNumber);
+                    position.RemoveAt(dossierNumber);
+                    Console.WriteLine("Досье удалено!");
+                }
+                else
+                {
+                    Console.WriteLine("Такого номера нет в списке.");
+                }
             }
         }
 
