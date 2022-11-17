@@ -7,13 +7,13 @@ namespace _6_Collections4
     {
         static void Main(string[] args)
         {
-            string userInput;
-            List<string> fullName = new() { "Петров Пётр Иванович", "Целиков Павел Сергеевич", "Смирнов Николай Николаевич" };
-            List<string> position = new() { "Грузчик", "Водитель", "Программист" };
             const string CommandAddDossier = "add";
             const string CommandOutputAllDossiers = "output";
             const string CommandDeleteDossier = "delete";
-            const string CommandExit = "exit";
+            const string CommandExit = "exit";      
+            List<string> fullName = new() { "Петров Пётр Иванович", "Целиков Павел Сергеевич", "Смирнов Николай Николаевич" };
+            List<string> position = new() { "Грузчик", "Водитель", "Программист" };
+            string userInput;
             bool isWorking = true;
 
             Console.Clear();
@@ -94,11 +94,16 @@ namespace _6_Collections4
 
         static void ShowMenu()
         {
+            const string CommandAddDossier = "add";
+            const string CommandOutputAllDossiers = "output";
+            const string CommandDeleteDossier = "delete";
+            const string CommandExit = "exit";
+
             Console.WriteLine("==========M--------Е---------Н--------Ю============");
-            Console.WriteLine("|||||||||||-----add - ДОБАВИТЬ ДОСЬЕ---||||||||||||");
-            Console.WriteLine("|||||||||||-output - ВЫВЕСТИ ВСЁ ДОСЬЕ-||||||||||||");
-            Console.WriteLine("|||||||||||--- delete - УДАЛИТЬ ДОСЬЕ--||||||||||||");
-            Console.WriteLine("|||||||||||________exit - ВЫХОД________||||||||||||");
+            Console.WriteLine($"|||||||||||-----{CommandAddDossier} - ДОБАВИТЬ ДОСЬЕ---||||||||||||");
+            Console.WriteLine($"|||||||||||-{CommandOutputAllDossiers} - ВЫВЕСТИ ВСЁ ДОСЬЕ-||||||||||||");
+            Console.WriteLine($"|||||||||||--- {CommandDeleteDossier} - УДАЛИТЬ ДОСЬЕ--||||||||||||");
+            Console.WriteLine($"|||||||||||________{CommandExit} - ВЫХОД________||||||||||||");
         }
 
         static void OutputAllDossiers(List<string> fullName, List<string> position)
