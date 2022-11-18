@@ -11,7 +11,7 @@ namespace _6_Collections4
             const string CommandOutputAllDossiers = "output";
             const string CommandDeleteDossier = "delete";
             const string CommandExit = "exit";      
-            List<string> fullName = new() { "Петров Пётр Иванович", "Целиков Павел Сергеевич", "Смирнов Николай Николаевич" };
+            List<string> fullName = new() { "Петрова Пётра Ивановича", "Целикова Павла Сергеевича", "Смирнова Николай Николаевича" };
             List<string> position = new() { "Грузчик", "Водитель", "Программист" };
             string userInput;
             bool isWorking = true;
@@ -60,14 +60,7 @@ namespace _6_Collections4
         {
             for (int i = 0; i < fullName.Count; i++)
             {
-                if (i != 0)
-                {
-                    Console.WriteLine(i + " " + fullName[i] + " " + position[i]);
-                }
-                else
-                {
-                    Console.WriteLine("  " + fullName[i] + " " + position[i]);
-                }
+                Console.WriteLine(i + " " + fullName[i] + " " + position[i]);
             }
         }
 
