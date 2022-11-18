@@ -10,9 +10,9 @@ namespace _6_Collections4
             const string CommandAddDossier = "add";
             const string CommandOutputAllDossiers = "output";
             const string CommandDeleteDossier = "delete";
-            const string CommandExit = "exit";      
+            const string CommandExit = "exit";
             List<string> fullName = new() { "Петрова Пётра Ивановича", "Целикова Павла Сергеевича", "Смирнова Николай Николаевича" };
-            List<string> position = new() { "Грузчик", "Водитель", "Программист" };
+            List<string> position = new() { "Грузчика", "Водителя", "Программиста" };
             string userInput;
             bool isWorking = true;
 
@@ -30,7 +30,7 @@ namespace _6_Collections4
                         AddDossier(fullName, position);
                         break;
                     case CommandOutputAllDossiers:
-                        OutputAllDossiers(fullName, position);
+                        ShowDossier(fullName, position);
                         break;
                     case CommandDeleteDossier:
                         DeleteDossier(fullName, position);
@@ -97,13 +97,6 @@ namespace _6_Collections4
             Console.WriteLine($"|||||||||||-{CommandOutputAllDossiers} - ВЫВЕСТИ ВСЁ ДОСЬЕ-||||||||||||");
             Console.WriteLine($"|||||||||||--- {CommandDeleteDossier} - УДАЛИТЬ ДОСЬЕ--||||||||||||");
             Console.WriteLine($"|||||||||||________{CommandExit} - ВЫХОД________||||||||||||");
-        }
-
-        static void OutputAllDossiers(List<string> fullName, List<string> position)
-        {
-            Console.Clear();
-            ShowMenu();
-            ShowDossier(fullName, position);
         }
     }
 }
